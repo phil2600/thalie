@@ -1,0 +1,42 @@
+<h1>Listing members</h1>
+<!--
+<table>
+  <tr>
+    <th>Last name</th>
+    <th>First name</th>
+    <th>Email</th>
+    <th>Password</th>
+    <th>Phone</th>
+    <th>Birthday</th>
+    <th>Gender</th>
+    <th>ID</th>
+  </tr>
+-->
+<% for member in @members %>
+  	<% id = "member_#{member.id}" %>
+  	<p class="member" id="<%= id %>" >
+	 	<span class="id"><%= member.id %></span>
+    	<span class="last_name"><%= member.last_name %></span>
+	    <span class="first_name"><%= member.first_name %></span>
+	    <span class="email"><%= member.email %></span>
+	    <span class="password"><%= member.password %></span>
+	    <span class="phone"><%= member.phone %></span>
+	    <span class="birthday"><%= member.birthday %></span>
+	    <span class="gender"><%= member.gender %></span
+	    <%= link_to '   Show', member %>
+	    <%= link_to 'Edit', edit_member_path(member) %>
+		<%= link_to_remote "Delete", :url => member_url(member), :method => :delete, 
+	      :confirm => "Are you sure ?",
+	      :before => "$('#{id}').insert(new Element('img', {src: '/images/web2.0_loader.gif'}))",
+	      :success => "Effect.SwitchOff('#{id}')",
+	      :failure => "alert('An error occured')" %>
+    </p>
+
+<% end %>
+<!--
+</table>
+-->
+<br />
+
+<%= link_to 'New member', new_member_path %>
+

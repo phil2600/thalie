@@ -1,0 +1,38 @@
+<p>
+  <b>Last name:</b>
+  <%=h @member.last_name %>
+</p>
+
+<p>
+  <b>First name:</b>
+  <%=h @member.first_name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @member.email %>
+</p>
+
+<p>
+  <b>Password:</b>
+  <%=h @member.password %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%=h @member.phone %>
+</p>
+
+<p>
+  <b>Birthday:</b>
+  <%=h @member.birthday %>
+</p>
+
+<p>
+  <b>Gender:</b>
+  <%=h @member.gender %>
+</p>
+
+
+<%= link_to 'Edit', edit_member_path(@member) %> |
+<%= link_to 'Back', members_path %>

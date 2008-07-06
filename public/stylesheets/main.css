@@ -1,0 +1,14 @@
+#header {
+    border: solid black 1pt;
+	margin: 5pt;
+	text-align: center;
+	font-size: 1em;
+	background: #2C4056;
+	color: #fff;
+}
+
+#header a {
+	font-size: 30pt;
+	font-style: italic;
+	color: #ccc;
+}

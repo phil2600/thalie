@@ -1,0 +1,175 @@
+ /**** DnD ****/
+
+.dnd .members {
+ 	float: left;
+	width: 45%;
+}
+
+.dnd .todos {
+ 	float: right;
+	width: 45%;
+ }
+
+ .dnd .todo,
+ .dnd .member {
+ 	/*border: 1px solid #bbb;*/
+	line-height: 25pt;
+	padding: 0.1em;
+	margin: 0.1em;
+	background-color: white;
+ }
+
+ .dnd .hover {
+ 	border: 1px dotted red;
+	background-color: #fdd;
+ }
+
+
+/**** Welcome ****/
+
+.welcome h2 {
+	margin: auto;
+	background-color: #aaa;
+	text-align: center;
+}
+
+.welcome .members {
+	float: left;
+	width: 45%;
+}
+
+.welcome .todos {
+	float: right;
+	width: 45%;
+}
+
+/**** Member ****/
+
+.member .id {
+	font-size: 120%;
+	font-weight: bold;
+	display: block;
+	float: left;
+	color: #ccc;
+}
+
+.member {
+	line-height: 25pt;
+}
+
+/**** Form ****/
+
+form label,
+form textarea,
+form input {
+	width: 15em;
+}
+
+form input.submit {
+	width: 15em;
+	margin-top: 1em;
+	margin-left: 16.6em;
+}
+
+form label {
+	margin: 0.2em;
+	text-align: right;
+	font-style: italic;
+	display: block;
+	float: left;
+	padding-right: 1em;
+}
+
+.fieldWithErrors {
+	display: inline;
+}
+
+/**** Defaults ****/
+
+* {
+	font-family: sans-serif;
+	font-size: 12pt;
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+}
+
+select, input, textarea {
+	border: 1px solid #ccc;
+	margin: 0.2em;
+}
+
+.fieldWithErrors select,
+.fieldWithErrors input,
+.fieldWithErrors textarea {
+	border: 1px solid red
+}
+
+.errorExplanation {
+	color: red;
+	margin: 1em;
+	margin-left: 10em;
+}
+
+.errorExplanation p {
+	font-size: 15pt;
+}
+
+.errorExplanation ul {
+	margin-left: 2em;
+}
+
+a, a:link, a:hover, a:visited {
+	text-decoration: none;
+	color:red
+}
+
+/**** Layout ****/
+
+#footer {
+	background-color: #eee;
+	height: 40pt;
+}
+
+h1 {
+	line-height: 40pt;
+	margin: 1em;
+}
+
+h2 {
+	margin: 1em;
+	margin-top: -2em;
+	text-align: right;
+	font-size: 20pt;
+}
+
+h3 {
+	font-size: 25pt;
+	font-weight: bold;
+	display: block;
+	margin-left: -1em;
+	margin-top: 1em;
+	color: #ccc;
+}
+
+#header h1 a {
+	font-size: 30pt;
+	font-style: italic;
+	color: #ccc;
+}
+
+#footer {
+	clear: both;
+}
+
+
+#header {
+    border: solid black 1pt;
+	margin: 5pt;
+	text-align: center;
+	font-size: 1em;
+	background: #2C4056;
+	color: #fff;
+}
+
+

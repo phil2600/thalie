@@ -1,0 +1,31 @@
+<h2>Welcome team !</h2>
+<%= link_to 'New member', new_member_path %><br/>
+<br/><%= link_to 'New group', new_group_path %><br/>
+<br/><%= link_to 'New project', new_project_path %><br/>
+<br/><%= link_to 'New task', new_task_path %><br/>
+<br/><%= link_to 'New event', new_event_path %><br/>
+
+
+<h1></h1>Show members</h1>
+<div id="slide" style="width:80px; height:80px; background:#ccc; text-align:center;">
+    <div class="dnd">
+		<div class="members">
+			<% @members.each do |member| %>
+				<% id = "member_#{member.id}" %>
+				<div class="member" id="<%= id %>">
+					<%= member.first_name %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>
+
+<ul>
+	<%if (@click) %>
+		<% @click = false%>
+		<li><a href="#" onclick="Effect.SlideDown('slide');">Down</a></li>
+	<% else %>
+		<% @click = true%>
+		<li><a href="#" onclick="Effect.SlideUp('slide');">up</a></li>
+	<% end %>
+</ul>
