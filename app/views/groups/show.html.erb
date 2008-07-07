@@ -1,8 +1,83 @@
+<div style="margin: 10pt 10pt 10pt 10pt">
 <p>
-  <b>Name:</b>
-  <%=h @group.name %>
+    Group: <strong><%= @group.name %></strong>
 </p>
-
-
-<%= link_to 'Edit', edit_group_path(@group) %> |
-<%= link_to 'Back', groups_path %>
+<br/>
+<div id="member_list">
+    <% if (@members.size != 0) %>
+    <p>
+        Members on <strong><%= @group.name %></strong>
+        :
+    </p>
+    <table>
+        <tr>
+            <th>
+                name: 
+            </th>
+        </tr>
+        <% else %>
+        <p>
+            There are no members.
+        </p>
+        <% end %>
+        <% @members.each do |member| %>
+        <tr>
+            <td>
+                * <%= link_to member.first_name + " " + member.last_name, member %>
+            </td>
+        </tr>
+        <% end %>
+    </table>
+</div>
+<br/>
+<div id="project">
+    <% if @project.nil? %>
+    <p>
+        There are no projects.
+    </p>
+    <% else %>
+    <p>
+        <ul>
+            Project: <%= link_to @project.name, @project %>
+        </ul>
+    </p>
+    <% end %>
+</div>
+<br/>
+<div id="event_list">
+    <% if (@events.size != 0) %>
+    <p>
+        Events:
+    </p>
+    <table>
+        <tr>
+            <th>
+                event
+            </th>
+            <th>
+                when
+            </th>
+        </tr>
+        <% else %>
+        <p>
+            There are no events.
+        </p>
+        <br/>
+        <% end %>
+        <% @events.each do |event| %>
+        <tr>
+            <td>
+                <%= link_to event.name, event %>
+            </td>
+            <td>
+                <%= event.date %>
+            </td>
+        </tr>
+        <% end %>
+    </table>
+</div>
+<br/>
+<%= link_to 'Edit', edit_group_path(@group) %> | <%= link_to 'Destroy', @group, :confirm => 'Are you sure?', :method => :delete %>
+<br/>
+<%= link_to 'View all groups', groups_path %>
+</div>

@@ -1,40 +1,49 @@
+<div style="margin: 10pt 10pt 10pt 10pt">
 <h1>Editing member</h1>
-
 <% form_for(@member) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :last_name %><br />
+<%= f.error_messages %>
+<p>
+    <%= f.label :last_name %>
+    <br/>
     <%= f.text_field :last_name %>
-  </p>
-  <p>
-    <%= f.label :first_name %><br />
+</p>
+<p>
+    <%= f.label :first_name %>
+    <br/>
     <%= f.text_field :first_name %>
-  </p>
-  <p>
-    <%= f.label :email %><br />
+</p>
+<p>
+    <%= f.label :email %>
+    <br/>
     <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :password %><br />
+</p>
+<p>
+    <%= f.label :password %>
+    <br/>
     <%= f.text_field :password %>
-  </p>
-  <p>
-    <%= f.label :phone %><br />
+</p>
+<p>
+    <%= f.label :phone %>
+    <br/>
     <%= f.text_field :phone %>
-  </p>
-  <p>
-    <%= f.label :birthday %><br />
-    <%= f.date_select :birthday %>
-  </p>
-  <p>
-    <%= f.label :gender %><br />
-	<%= f.select :gender, Member::GENDERS %><br/>
-  </p>
-  <p>
+</p>
+<p>
+    <%= calendar_date_select_includes "red" %>
+    <%= f.label :birthday %>
+    <br/>
+    <%= calendar_date_select_tag 'member[birthday]', nil,
+    :valid_date_check => "date < (new Date()).stripTime()",
+    :year_range => 150.years.ago..0.years.ago %>
+</p>
+<p>
+    <%= f.label :gender %>
+    <br/>
+    <%= f.select :gender, Member::GENDERS %>
+    <br/>
+</p>
+<p>
     <%= f.submit "Update" %>
-  </p>
+</p>
 <% end %>
-
-<%= link_to 'Show', @member %> |
-<%= link_to 'Back', members_path %>
+<%= link_to 'Show', @member %> |<%= link_to 'Back', members_path %>
+</div>

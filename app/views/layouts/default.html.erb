@@ -4,20 +4,41 @@
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
         <title>Thalie</title>
         <%= stylesheet_link_tag "default" %>
-		<%= javascript_include_tag :defaults %>
-
+        <%= javascript_include_tag :all, :cache => true %>
+        <%= javascript_include_tag 'prototype' %>
+        <%= javascript_include_tag 'calendar_date_select/calendar_date_select' %>
+        <%= javascript_include_tag 'mootools' %>
+        <%= javascript_include_tag 'event' %>
     </head>
     <body>
         <div id="header">
             <h1><%= link_to "Thalie", "/" %></h1>
         </div>
-        <div id="content">
+        <div id="main-menu">
+            <ul>
+                <li>
+                    <%= link_to 'Show members', members_path %>
+                </li>
+                <li>
+                    <%= link_to 'Show groups', groups_path %>
+                </li>
+                <li>
+                    <%= link_to 'Show projects', projects_path %>
+                </li>
+                <li>
+                    <%= link_to 'Show tasks', tasks_path %>
+                </li>
+                <li>
+                    <%= link_to 'Show events', events_path %>
+                </li>
+                <li>
+                    <%= session[:user] = nil %>
+                    <%= link_to 'Logout', logout_url %>
+                </li>
+            </ul>
+        </div>
+        <div>
             <%= yield %>
         </div>
-        <div id="footer">
-        </div>
-
     </body>
 </html>
-
-
