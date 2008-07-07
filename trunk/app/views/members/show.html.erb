@@ -1,3 +1,4 @@
+<div style="margin: 10pt 10pt 10pt 10pt">
 <p>
   <b>Last name:</b>
   <%=h @member.last_name %>
@@ -32,7 +33,10 @@
   <b>Gender:</b>
   <%=h @member.gender %>
 </p>
-
-
+<br />
+<%= link_to "View #{@member.last_name}'s groups.", member_groups_path(@member) %>
+<br />
+<br />
 <%= link_to 'Edit', edit_member_path(@member) %> |
 <%= link_to 'Back', members_path %>
+</div>

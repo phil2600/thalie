@@ -1,31 +1,46 @@
-<h2>Welcome team !</h2>
-<%= link_to 'New member', new_member_path %><br/>
-<br/><%= link_to 'New group', new_group_path %><br/>
-<br/><%= link_to 'New project', new_project_path %><br/>
-<br/><%= link_to 'New task', new_task_path %><br/>
-<br/><%= link_to 'New event', new_event_path %><br/>
-
-
-<h1></h1>Show members</h1>
-<div id="slide" style="width:80px; height:80px; background:#ccc; text-align:center;">
-    <div class="dnd">
-		<div class="members">
-			<% @members.each do |member| %>
-				<% id = "member_#{member.id}" %>
-				<div class="member" id="<%= id %>">
-					<%= member.first_name %>
-				</div>
-			<% end %>
-		</div>
-	</div>
+<br>
+<div id="block">
+	<img src="/images/Thalia.jpg" alt="Thalie"/>
+	<h4>Thalie</h4>
+</div>
+<div class="slide_menu" id="slide-1">
+    <span><strong>Last 5 members</strong></span>
+    <div>
+        <div class="members">
+            <% @members.each do |member| %>
+            <% id = "member_#{member.id}" %>
+            <div class="member" id="<%= id %>">
+                <%= link_to member.first_name.capitalize, member %>
+            </div>
+            <% end %>
+        </div>
+    </div>
 </div>
 
-<ul>
-	<%if (@click) %>
-		<% @click = false%>
-		<li><a href="#" onclick="Effect.SlideDown('slide');">Down</a></li>
-	<% else %>
-		<% @click = true%>
-		<li><a href="#" onclick="Effect.SlideUp('slide');">up</a></li>
-	<% end %>
-</ul>
+<% if session[:user]%>
+<div class="slide_menu" id="slide-2">
+    <span><%= link_to "<strong>My groups</strong>", member_groups_path(session[:user]) %></span>
+    <div class="members">
+            <% session[:user].group.each do |group| %>
+            <% id = "group_#{group.id}" %>
+            <div class="member" id="<%= id %>">
+                <%= link_to group.name.capitalize, group %>
+            </div>
+            <% end %>
+    </div>
+</div>
+<%end%>
+
+<% if session[:user] && false%>
+<div class="slide_menu" id="slide-2">
+    <span><strong>My Projects</strong></span>
+    <div class="members">
+            <% session[:user].project.each do |project| %>
+            <% id = "project_#{project.id}" %>
+            <div class="member" id="<%= id %>">
+                <%= link_to project.name.capitalize, project %>
+            </div>
+            <% end %>
+    </div>
+</div>
+<% end %>

@@ -1,4 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
+  
   map.resources :events, :has_one => :group
 
   map.resources :tasks, :has_one => :project
@@ -9,6 +10,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :members, :has_many => :groups
 
+  map.logout 'logout', :controller => 'logout', :action => 'index'
+  
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
@@ -48,6 +51,5 @@ ActionController::Routing::Routes.draw do |map|
   # Install the default routes as the lowest priority.
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
-  
   map.root :controller => "welcome"
 end

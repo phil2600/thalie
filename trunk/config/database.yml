@@ -17,7 +17,7 @@
 development:
   adapter: mysql
   encoding: utf8
-  database: Thalie_development
+  database: perard_a_Thalie_development
   username: root
   password:
   host: localhost
@@ -28,7 +28,7 @@ development:
 test:
   adapter: mysql
   encoding: utf8
-  database: Thalie_test
+  database: perard_a_Thalie_test
   username: root
   password:
   host: localhost
@@ -36,7 +36,7 @@ test:
 production:
   adapter: mysql
   encoding: utf8
-  database: Thalie_production
+  database: perard_a_Thalie_production
   username: root
   password: 
   host: localhost

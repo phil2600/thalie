@@ -1,3 +1,4 @@
+<div style="margin: 10pt 10pt 10pt 10pt">
 <h1>New event</h1>
 
 <% form_for(@event) do |f| %>
@@ -6,6 +7,10 @@
   <p>
     <%= f.label :name %><br />
     <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :group_id %><br />
+    <%= f.select :group_id, Group.find(:all,  :select => "name, id").map{ |x| [x.name, x.id.to_s]} %>
   </p>
   <p>
     <%= f.label :date %><br />
@@ -21,3 +26,4 @@
 <% end %>
 
 <%= link_to 'Back', events_path %>
+</div>
